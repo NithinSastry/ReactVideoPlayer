@@ -10,10 +10,10 @@ const API_KEY = "AIzaSyBrFqlTEmlnQ4XQm18ZHIw7a8VUPLhWrc4";
 class App extends Component {
     constructor(props) {
         super(props);
+        this.searchStarted = false;
         this.state = {
             videos: [],
             selectedVideo: null,
-            searchStarted: false
         };
 
         this.videoSearch("Facebook React");
@@ -25,17 +25,17 @@ class App extends Component {
                 videos: videos,
                 selectedVideo: videos[0]
             });
-            this.state.searchStarted = false;
+            this.searchStarted = false;
         });
     }
 
     throttleSearch(query) {
         this.term = query;
-        if (!this.state.searchStarted) {
+        if (!this.searchStarted) {
             setTimeout(() => {
                 this.videoSearch(this.term);
             }, 300);
-            this.state.searchStarted = true;
+            this.searchStarted = true;
         }
     }
 
