@@ -16,17 +16,24 @@ class App extends Component {
             selectedVideo: null
         };
 
-        YTSearch({ key: API_KEY, term: "pixel 2 xl" }, (videos) => {
+        this.videoSearch("Facebook React");
+    }
+
+    videoSearch(query) {
+        debugger;
+        YTSearch({ key: API_KEY, query: query }, (videos) => {
+            debugger;
             this.setState({
                 videos: videos,
                 selectedVideo: videos[0]
             });
         });
     }
+
     render() {
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearch = {(query)=>{debugger;this.videoSearch(query)}} />
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList
                     videos={this.state.videos}
