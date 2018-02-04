@@ -34,7 +34,7 @@ class App extends Component {
         if (!this.state.searchStarted) {
             setTimeout(() => {
                 this.videoSearch(this.term);
-            }, 1000);
+            }, 300);
             this.state.searchStarted = true;
         }
     }
