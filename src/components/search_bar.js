@@ -12,7 +12,6 @@ class SearchBar extends Component {
                 <input
                     value={this.state.query}
                     onChange={(event) => {
-                        debugger;
                         this.onInputChange(event.target.value)}
                     } />
             </div>
@@ -20,7 +19,6 @@ class SearchBar extends Component {
     }
 
     onInputChange(query) {
-        debugger;
         this.setState({ query });
         this.props.onSearch(query);
     }
